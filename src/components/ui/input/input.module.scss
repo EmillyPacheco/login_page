@@ -1,9 +1,13 @@
 .Input{
  border: 5px solid rgb(96, 1, 77);
-  margin: 10px;
+  margin: 10px 0 10px 10px;
   border-radius: 22px;
   height: 4.8vh;
   width: 56vw;
- 
+  position: relative;
+  top: -112px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 

@@ -1,6 +1,7 @@
 import './App.css';
 import Input from './components/ui/input/Input';
-import InputText from './components/ui/input/InputText';
+import ButtonText from './components/ui/input/ButtonText';
+import BtnEnter from './components/ui/btn_text/BtnEnter';
 
 function App() {
   return (
@@ -8,9 +9,11 @@ function App() {
       <header className="App-header">
       <Input/>
       <Input/>
-      <InputText id={'senha'} text={"Esqueceu a sua senha?"}/>
-      
+      <ButtonText id={'senha'}/>
+       <BtnEnter text={'ENTRAR'} />
+       <h2>OU</h2>
       </header>
+     
     </div>
   );
 }
