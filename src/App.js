@@ -11,7 +11,7 @@ function App() {
       <Input/>
       <ButtonText id={'senha'}/>
        <BtnEnter text={'ENTRAR'} />
-       <h2>OU</h2>
+       {/* <h2>OU</h2> */}
       </header>
      
     </div>
