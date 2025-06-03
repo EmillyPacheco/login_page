@@ -1,0 +1,46 @@
+.LoginPage {
+    height: 70vh;
+    width: 20vw;
+
+    position: relative;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    border-radius: 1vw;
+    box-shadow: 8px 8px 24px 0px rgba(0, 0, 0, 1);
+
+    color: white;
+
+    .Blur {
+        position: absolute;
+        height: 70vh;
+        width: 20vw;
+        border-radius: 1vw;
+        background-color: #33333360;
+        backdrop-filter: blur(5px);
+        z-index: -1;
+    }
+
+    .Title {
+        width: 80%;
+        text-align: start;
+
+        h1 {
+            font-size: 2.5vw;
+        }
+
+        p {
+            font-size: 0.8vw;
+        }
+
+    }
+
+    .NavigationCreateAcount {
+        display: flex;
+        font-size: 1.2vw;
+    }
+}

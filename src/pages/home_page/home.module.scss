@@ -1,0 +1,22 @@
+.CardsContainer {
+    height: 80vh;
+    width: 100vw;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.CardContainer {
+    position: relative;
+}
+
+.Card {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 5px;
+    background-color: #e32222;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
