@@ -1,0 +1,41 @@
+.LoginBtns{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    div{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+
+        div{
+            width: 65%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        h6{
+            width: 30%;
+            text-align: center;
+            font-size: 0.7vw;
+            border-bottom: 1px solid white;
+            margin: 1.5vw 0 1vw;
+        }
+    }
+}
+
+
+.red{
+    background-color: red;
+}
+.blue{
+    background-color: blue;
+}
+.green{
+    background-color: green;
+}

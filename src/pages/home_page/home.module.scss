@@ -1,22 +1,70 @@
-.CardsContainer {
-    height: 80vh;
-    width: 100vw;
-    overflow-y: scroll;
-    border: 1px solid #ccc;
-    position: relative;
-}
-
-.CardContainer {
-    position: relative;
+.Grind {
+    margin: 10vh 0 0 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overflow: scroll;
 }
 
 .Card {
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin: 5px;
-    background-color: #e32222;
-    border-radius: 8px;
-    padding: 10px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    width: 90%;
+    height: 90%;
+    position: relative;
+
+    margin: 1vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    background-color: rgb(218, 184, 218);
+    border-radius: 0.8vw;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 1);
+
+    margin: 1vw;
+
+    img {
+        height: 60%;
+    }
+
+    h1 {
+        width: 100%;
+        padding: 0 0 0 1.5vw;
+        font-size: 1vw;
+    }
+
+    h4 {
+        font-size: 1.5vw;
+        width: 100%;
+        padding: 0 0 0 1.5vw;
+    }
+
+    div {
+        button {
+            width: 2vw;
+            height: 2vw;
+            margin: 0.2vw;
+            padding: 0.2vw;
+
+            border-radius: 50%;
+            border: none;
+
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+
+        .BinButton {
+            background-color: rgb(152, 23, 23);
+        }
+
+        .PencilButton {
+            background-color: rgb(23, 106, 169);
+
+        }
+    }
 }

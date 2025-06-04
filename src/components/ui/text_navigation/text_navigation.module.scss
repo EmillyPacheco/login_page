@@ -1,0 +1,14 @@
+.TextNavigation{
+    background-color: transparent;
+    border: none;
+    
+    color: white;
+    font-size: 0.8vw;
+
+    cursor: pointer;
+    transition: all 0.1s ease-in-out;
+
+    &:hover{
+        transform: scale(1.02);
+    }
+}

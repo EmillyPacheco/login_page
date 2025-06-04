@@ -1,4 +1,4 @@
-import styles from './BtnEnter.module.scss'
+import styles from './btn_enter.module.scss'
 function BtnEnter ({text}){
     return<>
     <button  className={styles.BtnEnter}>

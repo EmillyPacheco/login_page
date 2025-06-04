@@ -1,13 +1,28 @@
-.Input{
- border: 5px solid rgb(96, 1, 77);
-  margin: 10px 0 10px 10px;
-  border-radius: 22px;
-  height: 4.8vh;
-  width: 18vw;
-  position: relative;
-  top: -180px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+// src/components/InputField/InputField.module.scss
+.inputWrapper {
+    width: 16vw;
+    height: 2vw;
+    
+    border-bottom: 1px solid white;
+    display: flex;
+    align-items: center;
+
+    margin: 1vw 0 0;
+
+    .input {
+        flex: 1;
+        background: transparent;
+        border: none;
+        outline: none;
+        color: white;
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .iconLeft, .iconRight {
+        color: white;
+        font-size: 1.25rem;
+        padding-right: 0.5rem;
+    }
 }
 

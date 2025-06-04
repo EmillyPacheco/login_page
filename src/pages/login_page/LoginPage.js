@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import LoginBtns from '../../components/models/login_btns/LoginBtns';
 import LoginInputs from '../../components/models/login_inputs/LoginInputs';
-import TextNavigation from '../../components/ui/text_navigation/TextNavigation';
+import TextNavigation from '../../components/ui/text_navigation/TextNivegation';
 
 import styles from './login_page.module.scss'
 import { useNavigate } from 'react-router-dom';
@@ -44,7 +44,7 @@ function LoginPage() {
             <div className={styles.Blur}></div>
             <div className={styles.Title}>
                 <h1>LOGIN</h1>
-                <p>Reserve sua viagem dos sonhos hoje!</p>
+                <p>Adote o pet dos seus sonhos!</p>
             </div>
             <div>
                 <LoginInputs onChange={onChange}/>
