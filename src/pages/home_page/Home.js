@@ -5,7 +5,7 @@ import styles from './home.module.scss';
 function Home({ alturaCartao = 120 }) {
 
 
-  const cartoes = Array.from({ length: 1000 }, (_, i) => ({
+  const cartoes = Array.from({ length: 15 }, (_, i) => ({
     id: i + 1,
     nome: `Cartão ${i + 1}`,
   }));
