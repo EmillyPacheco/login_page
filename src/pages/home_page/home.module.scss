@@ -1,70 +1,142 @@
-.Grind {
-    margin: 10vh 0 0 0;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    overflow: scroll;
-}
+// .Grind {
+//     margin: 10vh 0 0 0;
+//     scrollbar-width: none;
+//     -ms-overflow-style: none;
+//     overflow: scroll;
+// }
+
+// .Card {
+//     width: 90%;
+//     height: 90%;
+//     position: relative;
+
+//     margin: 1vw;
+
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     justify-content: space-around;
+
+//     background-color: rgb(218, 184, 218);
+//     border-radius: 0.8vw;
+//     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 1);
+
+//     margin: 1vw;
+
+//     img {
+//         height: 60%;
+//     }
+
+//     h1 {
+//         width: 100%;
+//         padding: 0 0 0 1.5vw;
+//         font-size: 1vw;
+//     }
+
+//     h4 {
+//         font-size: 1.5vw;
+//         width: 100%;
+//         padding: 0 0 0 1.5vw;
+//     }
+
+//     div {
+//         button {
+//             width: 2vw;
+//             height: 2vw;
+//             margin: 0.2vw;
+//             padding: 0.2vw;
+
+//             border-radius: 50%;
+//             border: none;
+
+//             color: white;
+//             cursor: pointer;
+//             transition: all 0.2s ease-in-out;
+
+//             &:hover {
+//                 transform: scale(1.1);
+//             }
+//         }
+
+//         .BinButton {
+//             background-color: rgb(152, 23, 23);
+//         }
+
+//         .PencilButton {
+//             background-color: rgb(23, 106, 169);
+
+//         }
+//     }
+// }
 
 .Card {
-    width: 90%;
-    height: 90%;
-    position: relative;
+  background: rgb(218, 184, 218);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-    margin: 1vw;
+  h4 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+  }
+}
 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+.Botoes {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
 
-    background-color: rgb(218, 184, 218);
-    border-radius: 0.8vw;
-    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 1);
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
 
-    margin: 1vw;
-
-    img {
-        height: 60%;
+    &:hover {
+      transform: scale(1.2);
     }
+  }
+}
 
-    h1 {
-        width: 100%;
-        padding: 0 0 0 1.5vw;
-        font-size: 1vw;
-    }
+.Adicionar {
+  margin: 20px;
+  padding: 10px 20px;
+  background: #28a745;
+  color: rgb(201, 164, 201);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
 
-    h4 {
-        font-size: 1.5vw;
-        width: 100%;
-        padding: 0 0 0 1.5vw;
-    }
+  &:hover {
+    background: #218838;
+  }
+}
 
-    div {
-        button {
-            width: 2vw;
-            height: 2vw;
-            margin: 0.2vw;
-            padding: 0.2vw;
+.Grind {
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+.AddCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color:rgb(201, 164, 201);
+  color: #28a745;
+  border: 2px dashed #28a745;
+  transition: background 0.3s;
 
-            border-radius: 50%;
-            border: none;
+  &:hover {
+    background: #e9fbe8;
+  }
 
-            color: white;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
-
-        .BinButton {
-            background-color: rgb(152, 23, 23);
-        }
-
-        .PencilButton {
-            background-color: rgb(23, 106, 169);
-
-        }
-    }
+  h4 {
+    font-size: 1.1rem;
+  }
 }
