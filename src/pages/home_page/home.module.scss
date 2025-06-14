@@ -21,52 +21,52 @@
 //     border-radius: 0.8vw;
 //     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 1);
 
-//     margin: 1vw;
+    // margin: 1vw;
 
-//     img {
-//         height: 60%;
-//     }
+    img {
+        height: 60%;
+    }
 
-//     h1 {
-//         width: 100%;
-//         padding: 0 0 0 1.5vw;
-//         font-size: 1vw;
-//     }
+    h1 {
+        width: 100%;
+        padding: 0 0 0 1.5vw;
+        font-size: 1vw;
+    }
 
-//     h4 {
-//         font-size: 1.5vw;
-//         width: 100%;
-//         padding: 0 0 0 1.5vw;
-//     }
+    h4 {
+        font-size: 1.5vw;
+        width: 100%;
+        padding: 0 0 0 1.5vw;
+    }
 
-//     div {
-//         button {
-//             width: 2vw;
-//             height: 2vw;
-//             margin: 0.2vw;
-//             padding: 0.2vw;
+    div {
+        button {
+            width: 2vw;
+            height: 2vw;
+            margin: 0.2vw;
+            padding: 0.2vw;
 
-//             border-radius: 50%;
-//             border: none;
+            border-radius: 50%;
+            border: none;
 
-//             color: white;
-//             cursor: pointer;
-//             transition: all 0.2s ease-in-out;
+            color: white;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
 
-//             &:hover {
-//                 transform: scale(1.1);
-//             }
-//         }
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
 
-//         .BinButton {
-//             background-color: rgb(152, 23, 23);
-//         }
+        .BinButton {
+            background-color: rgb(152, 23, 23);
+        }
 
-//         .PencilButton {
-//             background-color: rgb(23, 106, 169);
+        .PencilButton {
+            background-color: rgb(23, 106, 169);
 
-//         }
-//     }
+        }
+    }
 // }
 
 .Card {
@@ -122,12 +122,13 @@
   margin: 0 auto;
   scrollbar-width: none;
 }
+
 .AddCard {
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color:rgb(201, 164, 201);
+  background-color: rgb(201, 164, 201);
   color: #28a745;
   border: 2px dashed #28a745;
   transition: background 0.3s;
@@ -140,3 +141,119 @@
     font-size: 1.1rem;
   }
 }
+.Modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 20, 20, 0.7); // fundo escuro transparente
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.ModalContent {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 350px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.ModalContent h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.ModalContent input[type="text"],
+.ModalContent textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+}
+
+.ModalContent textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.ModalContent label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.ModalContent input[type="color"] {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.Botoes {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.Botoes button {
+  flex: 1;
+  padding: 0.6rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.Botoes button:first-child {
+  background-color: #4caf50;
+  color: white;
+}
+
+.Botoes button:first-child:hover {
+  background-color: #43a047;
+}
+
+.Botoes button:last-child {
+  background-color: #e53935;
+  color: white;
+}
+
+.Botoes button:last-child:hover {
+  background-color: #d32f2f;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+// Sou estudante do curso Técnico em Informática para a Internet no Senac,
+// busco minha primeira oportunidade na área tecnológica. Minhas experiencias são em supermercados,
+// onde desenvolvi habilidades como,
+// proatividade,
+// comunicação clara,
+// trabalho em equipe e responsabilidade no dia a dia. Me candidatei a vaga de Analista de Dados pois vejo nela uma grande oportunidade de iniciar na área que escolhi para minha carreira. Tenho interesse em dados,
+// análise e tecnologia,
+// e acredito que posso contribuir de forma significativa com minha dedicação,
+// raciocínio analítico e vontade de aprender e crescer profissionalmente. Trabalhar na Cresol seria uma chance de aplicar o que venho estudando e de fazer parte de uma equipe comprometida e que gera grande impacto principalmente no âmbito social,
+// educacional e desenvolvimento dos cooperados. Gostaria de poder demonstrar meu melhor e mostrar meu potencial como profissional da área.
