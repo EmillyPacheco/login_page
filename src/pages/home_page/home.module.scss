@@ -21,52 +21,96 @@
 //     border-radius: 0.8vw;
 //     box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 1);
 
-    // margin: 1vw;
+// margin: 1vw;
 
-    img {
-        height: 60%;
+img {
+  height: 60%;
+}
+
+h1 {
+  width: 100%;
+  padding: 0 0 0 1.5vw;
+  font-size: 1vw;
+}
+
+h4 {
+  font-size: 1.5vw;
+  width: 100%;
+  padding: 0 0 0 1.5vw;
+}
+
+.Botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.IconButton {
+  width: 2.6rem;
+  height: 2.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  &:focus {
+    outline: 2px solid #aaa;
+    outline-offset: 2px;
+  }
+}
+
+.PencilButton {
+  background-color: #2f80ed; // azul suave
+}
+
+.BinButton {
+  background-color: #eb5757; // vermelho suave
+}
+
+.BotaoTexto {
+  padding: 0.6px 0.8px;
+  font-size: 0.2%;
+  border-radius: 6px;
+  font-weight: 300;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &.Salvar {
+    background-color: #6c63ff;
+    color: white;
+
+    &:hover {
+      background-color: #574fd6;
     }
+  }
 
-    h1 {
-        width: 100%;
-        padding: 0 0 0 1.5vw;
-        font-size: 1vw;
+  &.Cancelar {
+    background-color: #e0e0e0;
+    color: #333;
+
+    &:hover {
+      background-color: #d5d5d5;
     }
+  }
+}
 
-    h4 {
-        font-size: 1.5vw;
-        width: 100%;
-        padding: 0 0 0 1.5vw;
-    }
-
-    div {
-        button {
-            width: 2vw;
-            height: 2vw;
-            margin: 0.2vw;
-            padding: 0.2vw;
-
-            border-radius: 50%;
-            border: none;
-
-            color: white;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-
-            &:hover {
-                transform: scale(1.1);
-            }
-        }
-
-        .BinButton {
-            background-color: rgb(152, 23, 23);
-        }
-
-        .PencilButton {
-            background-color: rgb(23, 106, 169);
-
-        }
-    }
 // }
 
 .Card {
@@ -141,6 +185,7 @@
     font-size: 1.1rem;
   }
 }
+
 .Modal {
   position: fixed;
   top: 0;
@@ -154,97 +199,130 @@
   z-index: 1000;
 }
 
+.Modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
 .ModalContent {
   background: #ffffff;
   padding: 2rem;
   border-radius: 16px;
-  width: 350px;
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-  animation: fadeIn 0.3s ease-in-out;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .ModalContent h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: #333;
   text-align: center;
-}
-
-.ModalContent input[type="text"],
-.ModalContent textarea {
-  width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  background-color: #f9f9f9;
-}
-
-.ModalContent textarea {
-  resize: vertical;
-  min-height: 80px;
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 0.5rem;
 }
 
 .ModalContent label {
   display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  margin-bottom: 1rem;
-  color: #555;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.ModalContent input,
+.ModalContent textarea {
+  margin-top: 0.4rem;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.ModalContent input:focus,
+.ModalContent textarea:focus {
+  border-color: #6c63ff;
+  outline: none;
 }
 
 .ModalContent input[type="color"] {
-  border: none;
-  background: none;
+  padding: 0;
+  height: 50px;
   cursor: pointer;
+  border: none;
 }
 
 .Botoes {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .Botoes button {
-  flex: 1;
-  padding: 0.6rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.8rem; // Ícone maior
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Botoes button:first-child {
-  background-color: #4caf50;
+  background-color: #6c63ff;
   color: white;
-}
-
-.Botoes button:first-child:hover {
-  background-color: #43a047;
 }
 
 .Botoes button:last-child {
-  background-color: #e53935;
-  color: white;
+  background-color: #e0e0e0;
+  color: #333;
 }
 
-.Botoes button:last-child:hover {
-  background-color: #d32f2f;
+.Botoes button:hover:first-child {
+  background-color: #574fd6;
+}
+
+.Botoes button:hover:last-child {
+  background-color: #d5d5d5;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.95);
+    transform: translateY(-12px);
   }
+
   to {
     opacity: 1;
-    transform: scale(1);
+    transform: translateY(0);
   }
 }
+
+/* Responsivo */
+@media (max-width: 500px) {
+  .ModalContent {
+    padding: 1.5rem;
+  }
+
+  .ModalContent h3 {
+    font-size: 1.3rem;
+  }
+
+  .Botoes button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
 
 
 // Sou estudante do curso Técnico em Informática para a Internet no Senac,

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { FixedSizeGrid } from "react-window";
 import styles from './home.module.scss';
+import { FaEdit, FaTrash } from "react-icons/fa";
+
 
 function Home({ alturaCartao = 120 }) {
   const [cartoes, setCartoes] = useState(
@@ -8,15 +10,18 @@ function Home({ alturaCartao = 120 }) {
       id: i + 1,
       nome: `Cartão ${i + 1}`,
       descricao: "",
-      cor: "#ffffff"
+      cor: "#ffffff",
+      imagem: ""
     }))
   );
 
   const [cartaoEditando, setCartaoEditando] = useState(null);
+  const [cartaoParaExcluir, setCartaoParaExcluir] = useState(null);
   const [formulario, setFormulario] = useState({
     nome: "",
     descricao: "",
-    cor: "#ffffff"
+    cor: "#ffffff",
+    imagem: ""
   });
 
   const handleAdd = () => {
@@ -25,7 +30,8 @@ function Home({ alturaCartao = 120 }) {
       id: novoId,
       nome: `Cartão ${novoId}`,
       descricao: "",
-      cor: "#ffffff"
+      cor: "#ffffff",
+      imagem: ""
     };
     setCartoes([...cartoes, novoCartao]);
   };
@@ -35,15 +41,26 @@ function Home({ alturaCartao = 120 }) {
     setFormulario({
       nome: cartao.nome,
       descricao: cartao.descricao,
-      cor: cartao.cor
+      cor: cartao.cor,
+      imagem: cartao.imagem
     });
   };
 
   const handleDelete = (id) => {
-    if (window.confirm("Tem certeza que deseja apagar este cartão?")) {
-      setCartoes(prev => prev.filter(c => c.id !== id));
-    }
+    const cartao = cartoes.find(c => c.id === id);
+    setCartaoParaExcluir(cartao); // abre o modal com o cartão escolhido
   };
+
+  const confirmarExclusao = () => {
+    setCartoes(prev => prev.filter(c => c.id !== cartaoParaExcluir.id));
+    setCartaoParaExcluir(null); // fecha o modal
+  };
+
+  const cancelarExclusao = () => {
+    setCartaoParaExcluir(null);
+  };
+
+
 
   const salvarEdicao = () => {
     setCartoes((prev) =>
@@ -75,11 +92,22 @@ function Home({ alturaCartao = 120 }) {
     return (
       <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
         <div className={styles.Card} style={{ backgroundColor: cartao.cor }}>
+          {cartao.imagem && (
+            <img
+              src={cartao.imagem}
+              alt="Imagem do cartão"
+              className={styles.ImagemCartao}
+            />
+          )}
           <h4>{cartao.nome}</h4>
           <p>{cartao.descricao}</p>
           <div className={styles.Botoes}>
-            <button onClick={() => handleEdit(cartao)}>✏️</button>
-            <button onClick={() => handleDelete(cartao.id)}>🗑️</button>
+            <button className={`${styles.IconButton} ${styles.PencilButton}`} onClick={() => handleEdit(cartao)} title="Editar">
+              <FaEdit size={20} />
+            </button>
+            <button className={`${styles.IconButton} ${styles.BinButton}`} onClick={() => handleDelete(cartao.id)} title="Excluir">
+              <FaTrash size={20} />
+            </button>
           </div>
         </div>
       </div>
@@ -93,29 +121,70 @@ function Home({ alturaCartao = 120 }) {
         <div className={styles.Modal}>
           <div className={styles.ModalContent}>
             <h3>Editar Cartão</h3>
-            <input
-              type="text"
-              value={formulario.nome}
-              onChange={(e) => setFormulario({ ...formulario, nome: e.target.value })}
-              placeholder="Nome do cartão"
-            />
-            <textarea
-              rows={4}
-              value={formulario.descricao}
-              onChange={(e) => setFormulario({ ...formulario, descricao: e.target.value })}
-              placeholder="Descrição"
-            />
+
             <label>
-              Cor:
+              Nome do cartão
+              <input
+                type="text"
+                value={formulario.nome}
+                onChange={(e) =>
+                  setFormulario({ ...formulario, nome: e.target.value })
+                }
+                placeholder="Ex: Tarefa de Front-End"
+              />
+            </label>
+
+            <label>
+              Descrição
+              <textarea
+                value={formulario.descricao}
+                onChange={(e) =>
+                  setFormulario({ ...formulario, descricao: e.target.value })
+                }
+                placeholder="Descreva o conteúdo do cartão"
+                rows={4}
+              />
+            </label>
+
+            <label>
+              Cor do Cartão
               <input
                 type="color"
                 value={formulario.cor}
-                onChange={(e) => setFormulario({ ...formulario, cor: e.target.value })}
+                onChange={(e) =>
+                  setFormulario({ ...formulario, cor: e.target.value })
+                }
               />
             </label>
+
+            <label>
+              Imagem (URL)
+              <input
+                type="text"
+                value={formulario.imagem}
+                onChange={(e) =>
+                  setFormulario({ ...formulario, imagem: e.target.value })
+                }
+                placeholder="https://exemplo.com/imagem.jpg"
+              />
+            </label>
+
             <div className={styles.Botoes}>
-              <button onClick={salvarEdicao}>Salvar</button>
-              <button onClick={() => setCartaoEditando(null)}>Cancelar</button>
+              <button className="BotaoTexto Salvar" onClick={salvarEdicao}>Salvar</button>
+              <button className="BotaoTexto Cancelar" onClick={() => setCartaoEditando(null)}>Cancelar</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {cartaoParaExcluir && (
+        <div className={styles.Modal}>
+          <div className={styles.ModalContent}>
+            <h3>Confirmar Exclusão</h3>
+            <p>Você realmente deseja apagar o cartão <strong>{cartaoParaExcluir.nome}</strong>?</p>
+            <div className={styles.Botoes}>
+              <button onClick={confirmarExclusao}>Sim</button>
+              <button onClick={cancelarExclusao}>Cancelar</button>
             </div>
           </div>
         </div>
