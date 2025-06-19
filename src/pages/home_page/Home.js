@@ -2,6 +2,9 @@ import { useState } from "react";
 import { FixedSizeGrid } from "react-window";
 import styles from './home.module.scss';
 import { FaEdit, FaTrash } from "react-icons/fa";
+import CardItem from "../../components/card/CardItem"
+import AddCard from "../../components/card/AddCard";
+import EditModal from "../../components/EditModel";
 
 
 function Home({ alturaCartao = 120 }) {
@@ -78,46 +81,62 @@ function Home({ alturaCartao = 120 }) {
     if (index >= totalCartoes) return null;
 
     if (index === cartoes.length) {
-      return (
-        <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
-          <div className={`${styles.Card} ${styles.AddCard}`} onClick={handleAdd}>
-            <h4>➕ Adicionar Cartão</h4>
-          </div>
-        </div>
-      );
+      return <AddCard onClick={handleAdd}></AddCard>
     }
 
     const cartao = cartoes[index];
+    return <CardItem 
+    cartao={cartao} 
+    onEdit={() => handleEdit(cartao)} 
+    onDelete={() => handleDelete(cartao.id)}
+    ></CardItem>
+  }
 
-    return (
-      <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
-        <div className={styles.Card} style={{ backgroundColor: cartao.cor }}>
-          {cartao.imagem && (
-            <img
-              src={cartao.imagem}
-              alt="Imagem do cartão"
-              className={styles.ImagemCartao}
-            />
-          )}
-          <h4>{cartao.nome}</h4>
-          <p>{cartao.descricao}</p>
-          <div className={styles.Botoes}>
-            <button className={`${styles.IconButton} ${styles.PencilButton}`} onClick={() => handleEdit(cartao)} title="Editar">
-              <FaEdit size={20} />
-            </button>
-            <button className={`${styles.IconButton} ${styles.BinButton}`} onClick={() => handleDelete(cartao.id)} title="Excluir">
-              <FaTrash size={20} />
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  // if (index === cartoes.length) {
+  //   return (
+  //     <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
+  //       <div className={`${styles.Card} ${styles.AddCard}`} onClick={handleAdd}>
+  //         <h4>➕ Adicionar Cartão</h4>
+  //       </div>
+  //     </div>
+  //   );
+  // }}
+  
+  // const cartao = cartoes[index];
+
+  //   return (
+  //     <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
+  //       <div className={styles.Card} style={{ backgroundColor: cartao.cor }}>
+  //         {cartao.imagem && (
+  //           <img
+  //             src={cartao.imagem}
+  //             alt="Imagem do cartão"
+  //             className={styles.ImagemCartao}
+  //           />
+  //         )}
+  //         <h4>{cartao.nome}</h4>
+  //         <p>{cartao.descricao}</p>
+  //         <div className={styles.Botoes}>
+  //           <button className={`${styles.IconButton} ${styles.PencilButton}`} onClick={() => handleEdit(cartao)} title="Editar">
+  //             <FaEdit size={20} />
+  //           </button>
+  //           <button className={`${styles.IconButton} ${styles.BinButton}`} onClick={() => handleDelete(cartao.id)} title="Excluir">
+  //             <FaTrash size={20} />
+  //           </button>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
 
   return (
     <>
-      {/* Modal de Edição */}
-      {cartaoEditando && (
+    
+     {cartaoEditando &&
+     <EditModal formulario={formulario} setFormulario={setFormulario} ></EditModal>
+      /* Modal de Edição
+       (
         <div className={styles.Modal}>
           <div className={styles.ModalContent}>
             <h3>Editar Cartão</h3>
@@ -175,8 +194,8 @@ function Home({ alturaCartao = 120 }) {
             </div>
           </div>
         </div>
-      )}
-
+      )*/
+      }
       {cartaoParaExcluir && (
         <div className={styles.Modal}>
           <div className={styles.ModalContent}>
