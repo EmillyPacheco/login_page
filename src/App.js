@@ -3,16 +3,25 @@ import './App.css';
 import LoginPage from './pages/login_page/LoginPage';
 import Home from './pages/home_page/Home';
 import Header from './components/models/header/Header';
+import PrivateRoute from './PrivateRoute';
+import { AuthProvider } from './context/AuthContext';
 
 function App() {
   return (
-    <div className='App'>
+    <AuthProvider>
+       <div className='App'>
      <Header/>
       <Routes>
         <Route path='/' element={<LoginPage />} />
-        <Route path='/home' element={<Home />} />
+        <Route path='/home' element={
+          <PrivateRoute>
+            <Home/>
+          </PrivateRoute>
+        } />
       </Routes>
     </div>
+       </AuthProvider>
+   
   );
 }
 
