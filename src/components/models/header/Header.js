@@ -6,6 +6,7 @@ function Header() {
     <header className={styles.Header}>
         <Link className={styles.BtnHeader} to={'/home'}> HOME </Link>
         <Link className={styles.BtnHeader} to={'/'}> LOGIN </Link>
+        <Link className={styles.BtnHeader} to={'/portifolio'}> PORTIFOLIO </Link>
     </header>
     </>
 }

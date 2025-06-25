@@ -5,6 +5,7 @@ import Home from './pages/home_page/Home';
 import Header from './components/models/header/Header';
 import PrivateRoute from './PrivateRoute';
 import { AuthProvider } from './context/AuthContext';
+import Portifolio from './pages/Portifolio/Portifolio';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
      <Header/>
       <Routes>
         <Route path='/' element={<LoginPage />} />
+        <Route path='/portifolio' element={<Portifolio/>} />
         <Route path='/home' element={
           <PrivateRoute>
             <Home/>
