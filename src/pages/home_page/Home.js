@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { FixedSizeGrid } from "react-window";
 import styles from './home.module.scss';
-import { FaEdit, FaTrash } from "react-icons/fa";
+// import { FaEdit, FaTrash } from "react-icons/fa";
 import CardItem from "../../components/card/CardItem"
 import AddCard from "../../components/card/AddCard";
 import EditModal from "../../components/EditModel";
@@ -65,14 +65,14 @@ function Home({ alturaCartao = 120 }) {
 
 
 
-  const salvarEdicao = () => {
-    setCartoes((prev) =>
-      prev.map((c) =>
-        c.id === cartaoEditando.id ? { ...c, ...formulario } : c
-      )
-    );
-    setCartaoEditando(null); // fecha o modal
-  };
+  // const salvarEdicao = () => {
+  //   setCartoes((prev) =>
+  //     prev.map((c) =>
+  //       c.id === cartaoEditando.id ? { ...c, ...formulario } : c
+  //     )
+  //   );
+  //   setCartaoEditando(null); // fecha o modal
+  // };
 
   const totalCartoes = cartoes.length + 1;
 
