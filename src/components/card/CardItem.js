@@ -1,4 +1,4 @@
-import { FaEdit, FaTrash } from "react-icons/fa";
+// import { FaEdit, FaTrash } from "react-icons/fa";
 import styles from './card_item.module.scss';
 
 export default function CardItem({ cartao, onEdit, onDelete }) {
@@ -15,10 +15,10 @@ export default function CardItem({ cartao, onEdit, onDelete }) {
       <p>{cartao.descricao}</p>
       <div className={styles.Botoes}>
         <button className={`${styles.IconButton} ${styles.PencilButton}`} onClick={onEdit} title="Editar">
-          <FaEdit size={20} />
+          {/* <FaEdit size={20} /> */}
         </button>
         <button className={`${styles.IconButton} ${styles.BinButton}`} onClick={onDelete} title="Excluir">
-          <FaTrash size={20} />
+          {/* <FaTrash size={20} /> */}
         </button>
       </div>
     </div>
