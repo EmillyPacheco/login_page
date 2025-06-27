@@ -2,10 +2,10 @@ import { Link, Route, Routes } from 'react-router-dom';
 import './App.css';
 import LoginPage from './pages/login_page/LoginPage';
 import Home from './pages/home_page/Home';
+import Portifolio from './pages/Portifolio/Portifolio';
 import Header from './components/models/header/Header';
 import PrivateRoute from './PrivateRoute';
 import { AuthProvider } from './context/AuthContext';
-import Portifolio from './pages/Portifolio/Portifolio';
 
 function App() {
   return (

@@ -1,18 +1,18 @@
-.App {
+.main {
   width: 100vw;
   height: 100vh;
 
   margin: 0;
   padding: 0;
   background-color: black;
-  background-image: url(../../fundo_gpt.png); 
-  /* background-image: linear-gradient(43deg, #8d89a9 0%, #9a92b5 22%, #542554 49%, #9c7eab 75%, #a589b5 100%); */
+  background-image: url(../../fundo-gpt.png); 
+//   /* background-image: linear-gradient(43deg, .8d89a9 0%, .9a92b5 22%, .542554 49%, .9c7eab 75%, .a589b5 100%); */
 
-    --color_with: #ffffff;
-    --btn_footer: #a570a5;
-    --bg: #000;
-    --hover-bg: #805580;
-    --hover-text: #000;
+//     --color_with: #ffffff;
+//     --btn_footer: #a570a5;
+//     --bg: #000;
+//     --hover-bg: #805580;
+//     --hover-text: #000;
 }
 
 .header {
@@ -26,7 +26,7 @@
 
 }
 
-#header_section {
+.header_section {
     width: 58%;
     height: 100%;
     display: flex;
@@ -36,13 +36,13 @@
 
 }
 
-#logo {
+.logo {
 
     width: auto;
     height: 100%;
 }
 
-#title_header {
+.title_header {
     font-size: 2vw;
     margin: 0 4%;
 
@@ -63,14 +63,14 @@
     justify-content: center;  
 }
 
-#infos{
+.infos{
     width: 40%;
     height: 82%;
     font-size: 0.8vw;
 
    
 }
-#first_name{
+.first_name{
     font-size: 3.8vw;
     margin: 0 18%;
     color: white;
@@ -80,7 +80,7 @@
     font-weight: 400;
     font-style: normal;
 }
-#last_name{
+.last_name{
     font-size: 3.8vw;
     margin: 0 20%;
 
@@ -89,7 +89,7 @@
     font-weight: 400;
     font-style: normal;
 }
-#description{
+.description{
     font-size: 1.4vw;
     margin: 3%;
 
@@ -100,7 +100,7 @@
     text-align: justify;
 }
 
-#img_logo{
+.img_logo{
     width: auto;
     height: 70vh;
     border-radius: 10%;
