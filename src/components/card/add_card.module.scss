@@ -13,11 +13,6 @@
   }
 }
 
-.Grind {
-  margin: 0 auto;
-  scrollbar-width: none;
-}
-
 .AddCard {
   display: flex;
   align-items: center;
@@ -27,6 +22,11 @@
   color: #28a745;
   border: 2px dashed #28a745;
   transition: background 0.3s;
+
+  .Grind {
+  margin: 0 auto;
+  scrollbar-width: none;
+}
 
   &:hover {
     background: #e9fbe8;
