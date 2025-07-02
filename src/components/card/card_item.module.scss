@@ -1,35 +1,74 @@
+// No seu arquivo SCSS que contém a classe .Card (ex: components/card/CardItem.module.scss)
+
 .Card {
   background: rgb(218, 184, 218);
   border-radius: 12px;
   padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  height: auto;
+  height: auto; // Mantém a altura flexível para o conteúdo
+  min-height: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  // --- ADICIONE OU VERIFIQUE ISSO AQUI ---
+  box-sizing: border-box; // Garante que padding e borda não aumentem o tamanho total do card
+  width: 100%; // Faz o card ocupar 100% da coluna do grid, respeitando o minmax
+
+  img { // Se você tem uma imagem dentro do Card, ANINHE AS REGRAS AQUI
+    width: 100%; // Ocupa 100% da largura do seu Card
+    height: auto; // MUITO IMPORTANTE: mantém a proporção da imagem
+    max-height: 180px; // Limita a altura da imagem para que ela não seja gigante
+    object-fit: cover; // Se a imagem for de proporção diferente, ela se ajusta sem distorcer, cortando o excesso
+    border-radius: 8px; // Opcional, para as bordas da imagem combinarem com o Card
+    margin-bottom: 10px; // Espaçamento abaixo da imagem
+  }
 
   h4 {
     margin: 0 0 10px;
-    font-size: 1.2rem;
+    font-size: 1.2rem; // ISSO AGORA ESTÁ CORRETO E ESPECÍFICO PARA O CARD
+    // Remova qualquer padding ou width aqui se não for necessário
+  }
+
+  // Se você tiver elementos de descrição (provavelmente um <p> tag)
+  p {
+      font-size: 0.9rem; // Um bom tamanho para a descrição
+      margin-bottom: 10px;
+      flex-grow: 1; // Permite que a descrição ocupe o espaço e empurre os botões para o final
   }
 }
 
-.Botoes {
-  display: flex;
-  gap: 10px;
-  justify-content: flex-end;
-
-  button {
-    background: none;
-    border: none;
+// Ajuste os botões de texto também, ANINHADOS se forem específicos do Card
+// OU crie uma classe específica se forem usados em vários lugares
+.BotaoTexto {
+    padding: 0.6em 0.8em; // Valores sensatos para padding
+    font-size: 0.9rem; // Tamanho de fonte legível
+    border-radius: 6px;
+    font-weight: 300;
     cursor: pointer;
-    font-size: 1.2rem;
-    transition: transform 0.2s;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s;
 
     &:hover {
-      transform: scale(1.2);
+        transform: scale(1.05);
     }
-  }
+
+    &.Salvar {
+        background-color: #6c63ff;
+        color: white;
+
+        &:hover {
+            background-color: #574fd6;
+        }
+    }
+
+    &.Cancelar {
+        background-color: #e0e0e0;
+        color: #333;
+
+        &:hover {
+            background-color: #d5d5d5;
+        }
+    }
 }
 
 .PencilButton {

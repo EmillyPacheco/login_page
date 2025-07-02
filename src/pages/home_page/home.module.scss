@@ -23,21 +23,22 @@
 
 // margin: 1vw;
 
-img {
-  height: 60%;
-}
 
-h1 {
-  width: 100%;
-  padding: 0 0 0 1.5vw;
-  font-size: 1vw;
-}
+// img {
+//   height: 60%;
+// }
 
-h4 {
-  font-size: 1.5vw;
-  width: 100%;
-  padding: 0 0 0 1.5vw;
-}
+// h1 {
+//   width: 100%;
+//   padding: 0 0 0 1.5rem;
+//   font-size: 1rem;
+// }
+
+// h4 {
+//   font-size: 1.5rem;
+//   width: 100%;
+//   padding: 0 0 0 1.5rem;
+// }
 
 .Botoes {
   display: flex;
@@ -74,8 +75,8 @@ h4 {
 
 
 .BotaoTexto {
-  padding: 0.6px 0.8px;
-  font-size: 0.2%;
+  padding: 0.8px 1px;
+  font-size: 0.6%;
   border-radius: 6px;
   font-weight: 300;
   cursor: pointer;

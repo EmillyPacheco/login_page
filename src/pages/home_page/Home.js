@@ -76,13 +76,13 @@ function Home({ alturaCartao = 120 }) {
 
   const totalCartoes = cartoes.length + 1;
 
-  // const Cell = ({ columnIndex, rowIndex, style }) => {
-  //   const index = rowIndex * 5 + columnIndex;
-  //   if (index >= totalCartoes) return null;
+  const Cell = ({ columnIndex, rowIndex, style }) => {
+    const index = rowIndex * 5 + columnIndex;
+    if (index >= totalCartoes) return null;
 
-  //   if (index === cartoes.length) {
-  //     return <AddCard onClick={handleAdd}></AddCard>
-  //   }
+    if (index === cartoes.length) {
+      return <AddCard onClick={handleAdd}></AddCard>
+    }
 
     const cartao = cartoes[index];
     return <CardItem 
@@ -210,20 +210,21 @@ function Home({ alturaCartao = 120 }) {
       )}
 
       {/* Grade de Cartões */}
-    <div className={styles.GridResponsiva}>
-  {cartoes.map((cartao) => (
-    <CardItem
-      key={cartao.id}
-      cartao={cartao}
-      onEdit={() => handleEdit(cartao)}
-      onDelete={() => handleDelete(cartao.id)}
-    />
-  ))}
-  <AddCard onClick={handleAdd} />
-</div>
+  <FixedSizeGrid
+  columnCount={5}
+  columnWidth={250}
+  rowCount={Math.ceil(totalCartoes / 5)}
+  rowHeight={180}
+  height={800}
+  width={5 * 250}
+  className={styles.Grind}
+>
+  {Cell}
+</FixedSizeGrid>
+
 
     </>
-  );
+  )};
 
 
 export default Home;
