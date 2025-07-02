@@ -1,0 +1,38 @@
+.Adicionar {
+  margin: 20px;
+  padding: 10px 20px;
+  background: #28a745;
+  color: rgb(201, 164, 201);
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+
+  &:hover {
+    background: #218838;
+  }
+}
+
+.AddCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: rgb(201, 164, 201);
+  color: #28a745;
+  border: 2px dashed #28a745;
+  transition: background 0.3s;
+
+  .Grind {
+  margin: 0 auto;
+  scrollbar-width: none;
+}
+
+  &:hover {
+    background: #e9fbe8;
+  }
+
+  h4 {
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,41 @@
+.Card {
+  background: rgb(218, 184, 218);
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  h4 {
+    margin: 0 0 10px;
+    font-size: 1.2rem;
+  }
+}
+
+.Botoes {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.PencilButton {
+  background-color: #2f80ed; // azul suave
+}
+
+.BinButton {
+  background-color: #eb5757; // vermelho suave
+}

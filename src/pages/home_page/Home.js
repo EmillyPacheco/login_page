@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { FixedSizeGrid } from "react-window";
 import styles from './home.module.scss';
-import { FaEdit, FaTrash } from "react-icons/fa";
+// import { FaEdit, FaTrash } from "react-icons/fa";
+import CardItem from "../../components/card/CardItem"
+import AddCard from "../../components/card/AddCard";
+import EditModal from "../../components/EditModel";
 
 
 function Home({ alturaCartao = 120 }) {
@@ -62,62 +65,78 @@ function Home({ alturaCartao = 120 }) {
 
 
 
-  const salvarEdicao = () => {
-    setCartoes((prev) =>
-      prev.map((c) =>
-        c.id === cartaoEditando.id ? { ...c, ...formulario } : c
-      )
-    );
-    setCartaoEditando(null); // fecha o modal
-  };
+  // const salvarEdicao = () => {
+  //   setCartoes((prev) =>
+  //     prev.map((c) =>
+  //       c.id === cartaoEditando.id ? { ...c, ...formulario } : c
+  //     )
+  //   );
+  //   setCartaoEditando(null); // fecha o modal
+  // };
 
   const totalCartoes = cartoes.length + 1;
 
-  const Cell = ({ columnIndex, rowIndex, style }) => {
-    const index = rowIndex * 5 + columnIndex;
-    if (index >= totalCartoes) return null;
+  // const Cell = ({ columnIndex, rowIndex, style }) => {
+  //   const index = rowIndex * 5 + columnIndex;
+  //   if (index >= totalCartoes) return null;
 
-    if (index === cartoes.length) {
-      return (
-        <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
-          <div className={`${styles.Card} ${styles.AddCard}`} onClick={handleAdd}>
-            <h4>➕ Adicionar Cartão</h4>
-          </div>
-        </div>
-      );
-    }
+  //   if (index === cartoes.length) {
+  //     return <AddCard onClick={handleAdd}></AddCard>
+  //   }
 
     const cartao = cartoes[index];
+    return <CardItem 
+    cartao={cartao} 
+    onEdit={() => handleEdit(cartao)} 
+    onDelete={() => handleDelete(cartao.id)}
+    ></CardItem>
+  }
 
-    return (
-      <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
-        <div className={styles.Card} style={{ backgroundColor: cartao.cor }}>
-          {cartao.imagem && (
-            <img
-              src={cartao.imagem}
-              alt="Imagem do cartão"
-              className={styles.ImagemCartao}
-            />
-          )}
-          <h4>{cartao.nome}</h4>
-          <p>{cartao.descricao}</p>
-          <div className={styles.Botoes}>
-            <button className={`${styles.IconButton} ${styles.PencilButton}`} onClick={() => handleEdit(cartao)} title="Editar">
-              <FaEdit size={20} />
-            </button>
-            <button className={`${styles.IconButton} ${styles.BinButton}`} onClick={() => handleDelete(cartao.id)} title="Excluir">
-              <FaTrash size={20} />
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  };
+  // if (index === cartoes.length) {
+  //   return (
+  //     <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
+  //       <div className={`${styles.Card} ${styles.AddCard}`} onClick={handleAdd}>
+  //         <h4>➕ Adicionar Cartão</h4>
+  //       </div>
+  //     </div>
+  //   );
+  // }}
+  
+  // const cartao = cartoes[index];
+
+  //   return (
+  //     <div style={{ ...style, padding: "10px", boxSizing: "border-box" }}>
+  //       <div className={styles.Card} style={{ backgroundColor: cartao.cor }}>
+  //         {cartao.imagem && (
+  //           <img
+  //             src={cartao.imagem}
+  //             alt="Imagem do cartão"
+  //             className={styles.ImagemCartao}
+  //           />
+  //         )}
+  //         <h4>{cartao.nome}</h4>
+  //         <p>{cartao.descricao}</p>
+  //         <div className={styles.Botoes}>
+  //           <button className={`${styles.IconButton} ${styles.PencilButton}`} onClick={() => handleEdit(cartao)} title="Editar">
+  //             <FaEdit size={20} />
+  //           </button>
+  //           <button className={`${styles.IconButton} ${styles.BinButton}`} onClick={() => handleDelete(cartao.id)} title="Excluir">
+  //             <FaTrash size={20} />
+  //           </button>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   );
+  // };
+
 
   return (
     <>
-      {/* Modal de Edição */}
-      {cartaoEditando && (
+    
+     {cartaoEditando &&
+     <EditModal formulario={formulario} setFormulario={setFormulario} ></EditModal>
+      /* Modal de Edição
+       (
         <div className={styles.Modal}>
           <div className={styles.ModalContent}>
             <h3>Editar Cartão</h3>
@@ -175,8 +194,8 @@ function Home({ alturaCartao = 120 }) {
             </div>
           </div>
         </div>
-      )}
-
+      )*/
+      }
       {cartaoParaExcluir && (
         <div className={styles.Modal}>
           <div className={styles.ModalContent}>
@@ -191,20 +210,21 @@ function Home({ alturaCartao = 120 }) {
       )}
 
       {/* Grade de Cartões */}
-      <FixedSizeGrid
-        columnCount={5}
-        columnWidth={250}
-        rowCount={Math.ceil(totalCartoes / 5)}
-        rowHeight={300}
-        height={1000}
-        width={5 * 250}
-        className={styles.Grind}
-      >
-        {Cell}
-      </FixedSizeGrid>
+    <div className={styles.GridResponsiva}>
+  {cartoes.map((cartao) => (
+    <CardItem
+      key={cartao.id}
+      cartao={cartao}
+      onEdit={() => handleEdit(cartao)}
+      onDelete={() => handleDelete(cartao.id)}
+    />
+  ))}
+  <AddCard onClick={handleAdd} />
+</div>
+
     </>
   );
-}
+
 
 export default Home;
 

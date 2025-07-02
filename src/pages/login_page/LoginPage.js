@@ -2,9 +2,11 @@ import { useState } from 'react';
 import LoginBtns from '../../components/models/login_btns/LoginBtns';
 import LoginInputs from '../../components/models/login_inputs/LoginInputs';
 import TextNavigation from '../../components/ui/text_navigation/TextNivegation';
+import Portifolio from '../Portifolio/Portifolio';
 
 import styles from './login_page.module.scss'
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
 function LoginPage() {
     const [loginForm, setLoginForm] = 
@@ -28,11 +30,14 @@ function LoginPage() {
         password: '12345678',
     }
 
+    const {login} = useAuth();
+
     const tryLogin = () => {
         const { email, password } = loginForm;
 
         if (email === cad.email && password === cad.password) {
             alert("Login realizado com sucesso!");
+            login();
             navigate('/home');
         } else {
             alert("Email ou Senha incorretos!");
